@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حماية الرأس - KO Store</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            border-bottom: 2px solid #f00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #f00;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7);
+        }
+
+        .btn {
+            background-color: #f00;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #d00000;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            background-color: #333;
+            border: 1px solid #f00;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            width: 30%;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        .cart-btn {
+            display: block;
+            background-color: #f00;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        select {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 1em;
+            background-color: #444;
+            color: white;
+            border: 1px solid #f00;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">KO Store - Headguard</h1>
+            <button class="btn" onclick="window.location.href='C:/Users/nawrs/Desktop/raesy1.html'">🏠 HOME</button>
+            <button class="btn" onclick="window.location.href='C:/Users/nawrs/Desktop/sla.html'">🛒 cart</button>
+        </div>
+
+        <div class="product-container">
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/1ab1813f9b67e56966e7812f2f9810bd/a/d/adi811-red-a.webp">
+                <div class="product-info">
+                    <h3>Adidas IBA Contest Headguard</h3>
+                    <p><span style="text-decoration: line-through; color: red;">550</span> 480 ₪</p>
+                    <select id="size1">
+                        <option value="S">(S)</option>
+                        <option value="M">(M)</option>
+                        <option value="L">(L)</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(1, 'Adidas IBA Contest Headguard', 480, document.getElementById('size1').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/4dc439ab25628538766a64d05c35b5b4/a/d/adi811-blue-a-2.webp">
+                <div class="product-info">
+                    <h3>Adidas IBA Contest Headguard</h3>
+                    <p><span style="text-decoration: line-through; color: red;">550</span>480 ₪</p>
+                    <select id="size2">
+                        <option value="S">(S)</option>
+                        <option value="M">(M)</option>
+                        <option value="L">(L)</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(2, 'Adidas IBA Contest Headguard',480, document.getElementById('size2').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/1/thumbnail/550x550/9df78eab33525d08d6e5fb8d27136e95/a/d/adidas_speed_tilt_750_headguard_black.webp" alt="Adidas Speed Tilt 750 Headguard">
+                <div class="product-info">
+                    <h3>Adidas Speed Tilt 750 Headguard</h3>
+                    <p><span style="text-decoration: line-through; color: red;">700</span> 600 ₪</p>
+                    <select id="size3">
+                        <option value="S">(S)</option>
+                        <option value="M">(M)</option>
+                        <option value="L">(L)</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(3, 'Adidas Speed Tilt 750 Headguard', 600, document.getElementById('size3').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(id, name, price, size) {
+            cart.push({ id, name, price, size });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} (الحجم: ${size}) أُضيف إلى السلة!`);
+        }
+    </script>
+</body>
+</html>

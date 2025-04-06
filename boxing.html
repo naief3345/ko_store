@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكفوف - KO Store</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            border-bottom: 2px solid #f00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #f00;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7);
+        }
+
+        .btn {
+            background-color: #f00;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #d00000;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            background-color: #333;
+            border: 1px solid #f00;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            width: 30%;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        .cart-btn {
+            margin-top: 10px;
+            display: block;
+            background-color: #f00;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        select {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 1em;
+            background-color: #444;
+            color: white;
+            border: 1px solid #f00;
+            border-radius: 5px;
+        }
+
+        option {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">KO Store - gloves</h1>
+              <button  class="btn" onclick="window.location.href='C:/Users/nawrs/Desktop/raesy1.html'">🏠 HOME</button>
+            <a href="file:///C:/Users/nawrs/Desktop/sla.html" class="cart-btn" id="cart-link" onclick="viewCart()">🛒 cart</a>
+        </div>
+
+        <div class="product-container">
+            <!-- المنتجات مع تفاصيلها -->
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/4dc439ab25628538766a64d05c35b5b4/s/t/st115-blue_2.png" alt="Sting IBA Contest Boxing Gloves">
+                <div class="product-info">
+                    <h3>Sting IBA Contest Boxing Gloves</h3>
+                    <p><span style="text-decoration: line-through; color: red;">600</span> 500 ₪</p>
+                    <select id="oz1">
+                        <option value="8">8 oz</option>
+                        <option value="10">10 oz</option>
+                        <option value="12">12 oz</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(1, 'Sting IBA Contest Boxing Gloves', 500, document.getElementById('oz1').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/4dc439ab25628538766a64d05c35b5b4/s/t/st115-red.webp" alt="Sting IBA Contest Boxing Gloves">
+                <div class="product-info">
+                    <h3>Sting IBA Contest Boxing Gloves</h3>
+                    <p><span style="text-decoration: line-through; color: red;">600</span> 500 ₪</p>
+                    <select id="oz2">
+                        <option value="8">8 oz</option>
+                        <option value="10">10 oz</option>
+                        <option value="12">12 oz</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(2, 'Sting IBA Contest Boxing Gloves', 500, document.getElementById('oz2').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/1ab1813f9b67e56966e7812f2f9810bd/a/d/adi150_white.webp" alt="Adidas Hybrid Boxing Gloves">
+                <div class="product-info">
+                    <h3>Adidas Hybrid Boxing Gloves</h3>
+                    <p><span style="text-decoration: line-through; color: red;">250</span> 200 ₪</p>
+                    <select id="oz3">
+                        <option value="8">8 oz</option>
+                        <option value="10">10 oz</option>
+                        <option value="12">12 oz</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(3, 'Adidas Hybrid Boxing Gloves', 200, document.getElementById('oz3').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/4dc439ab25628538766a64d05c35b5b4/a/d/adi150_black_5_1.webp" alt="Adidas Hybrid Boxing Gloves">
+                <div class="product-info">
+                    <h3>Adidas Hybrid Boxing Gloves</h3>
+                    <p><span style="text-decoration: line-through; color: red;">250</span> 200 ₪</p>
+                    <select id="oz4">
+                        <option value="8">8 oz</option>
+                        <option value="10">10 oz</option>
+                        <option value="12">12 oz</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(4, 'Adidas Hybrid Boxing Gloves', 200, document.getElementById('oz4').value)">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <!-- المزيد من المنتجات يمكن إضافتها هنا -->
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(id, name, price, oz) {
+            cart.push({ id, name, price, oz });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} (الoz: ${oz}) أُضيف إلى السلة!`);
+        }
+
+        function viewCart() {
+            if (cart.length === 0) {
+                alert("السلة فارغة");
+                return;
+            }
+
+            let total = 0;
+            let cartItemsHTML = '';
+            cart.forEach(item => {
+                cartItemsHTML += `<li>${item.name} - الoz: ${item.oz} - ${item.price} ₪</li>`;
+                total += item.price;
+            });
+
+            document.getElementById('cart-items-list').innerHTML = cartItemsHTML;
+            document.getElementById('total-price').innerText = `المجموع: ${total} ₪`;
+
+            if (total > 400) {
+                document.getElementById('shipping-info').innerText = "التوصيل مجاني!";
+            } else {
+                document.getElementById('shipping-info').innerText = "التوصيل 50 في حال تواجدك داخل الناصره ";
+                
+            }
+
+            document.getElementById('cart-content').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+

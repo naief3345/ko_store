@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأحذية - KO Store</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            border-bottom: 2px solid #f00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #f00;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7);
+        }
+
+        .btn {
+            background-color: #f00;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #d00000;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product {
+            background-color: #333;
+            border: 1px solid #f00;
+            padding: 15px;
+            margin: 10px;
+            width: 30%;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            margin-top: 10px;
+        }
+
+        .cart-btn {
+            margin-top: 10px;
+            display: block;
+            background-color: #f00;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        select {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 1em;
+            background-color: #444;
+            color: white;
+            border: 1px solid #f00;
+            border-radius: 5px;
+        }
+
+        option {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">KO Store - Shoes</h1>
+            <button class="btn" onclick="window.location.href='C:/Users/nawrs/Desktop/raesy1.html'">🏠 HOME</button>
+            <a href="file:///C:/Users/nawrs/Desktop/sla.html" class="cart-btn">🛒 cart</a>
+        </div>
+       
+       
+
+        <div class="product-container">
+            <!-- المنتجات -->
+            
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/4dc439ab25628538766a64d05c35b5b4/a/d/adi1408-white_grey-a_1_1_1.webp">
+                <div class="product-info">
+                    <h3>Adidas Speedex 23 Boxing Boots</h3>
+                    <p><span style="text-decoration: line-through; color: red;">800</span> 650 ₪</p>
+                    <select id="size2">
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(2, 'Adidas Box Hog 3', 400, document.getElementById('size2').value, 'https://www.geezersboxing.co.uk/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/a/d/adidas-box-hog-3-black-white-gold-1.jpg')">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://www.geezersboxing.co.uk/media/catalog/product/cache/1ab1813f9b67e56966e7812f2f9810bd/a/d/adi1408-blk_carbon-a_3_1_1.webp">
+                <div class="product-info">
+                    <h3>Adidas Speedex 23 Boxing Boots</h3>
+                    <p><span style="text-decoration: line-through; color: red;">800</span> 650 ₪</p>
+                    <select id="size1">
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(1, 'Nike HyperKO 2', 650, document.getElementById('size1').value, 'https://www.geezersboxing.co.uk/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/n/i/nike-hyperko-2-black-white-red-1.jpg')">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            
+          
+
+            <div class="product">
+                <img src="">
+                <div class="product-info">
+                    <h3>Adidas Box Hog 3</h3>
+                    <p><span style="text-decoration: line-through; color: red;">500</span> 400 ₪</p>
+                    <select id="size2">
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                    </select>
+                    <button class="btn" onclick="addToCart(2, 'Adidas Box Hog 3', 400, document.getElementById('size2').value, 'https://www.geezersboxing.co.uk/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/a/d/adidas-box-hog-3-black-white-gold-1.jpg')">أضف إلى السلة</button>
+                </div>
+            </div>
+            <!-- المزيد من الأحذية يمكن إضافتها بنفس الطريقة -->
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(id, name, price, size, image) {
+            cart.push({ id, name, price, size, image });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} (المقاس: ${size}) أُضيف إلى السلة!`);
+        }
+    </script>
+</body>
+</html>

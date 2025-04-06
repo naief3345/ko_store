@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السلة - KO Store</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 2px solid #f00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            border: 1px solid #f00;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .cart-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .cart-item-info {
+            flex: 1;
+            padding: 0 15px;
+            text-align: left;
+        }
+        .btn {
+            background-color: #f00;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #d00000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 cart</h1>
+            <button class="btn" onclick="window.location.href='C:/Users/nawrs/Desktop/raesy1.html'">🏠 HOME</button>
+        </div>
+        <div id="cart-items"></div>
+        <h3 id="total-price">المجموع: 0 ₪</h3>
+        <button class="btn" onclick="checkout()">اشترِ الآن</button>
+    </div>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        function displayCart() {
+            let cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h3>${item.name}</h3>
+                            <p>${item.price} ₪</p>
+                        </div>
+                        <button class="btn" onclick="removeFromCart(${index})">❌</button>
+                    </div>`;
+            });
+            document.getElementById('total-price').innerText = `المجموع: ${total} ₪`;
+        }
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+        function checkout() {
+            let phone = prompt("الرجاء إدخال رقم هاتفك لإتمام الطلب:");
+            if (phone) {
+                let orderDetails = cart.map(item => `${item.name} - ${item.price} ₪`).join("\n");
+                let emailBody = `رقم الهاتف: ${phone}\n\nالطلبات:\n${orderDetails}`;
+                window.location.href = `mailto:naief.a.2410@icloud.com?subject=طلب شراء&body=${encodeURIComponent(emailBody)}`;
+            }
+        }
+        displayCart();
+    </script>
+     <p>في حال وجود خطا ما الرجاء الارسال على 0504242967 او على حساب الانستغرام</p>
+</body>
+</html>
+${item.image}
+
+ 
